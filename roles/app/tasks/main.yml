@@ -1,0 +1,11 @@
+---
+- name: install python3 package
+  pip:
+    requirements: /srv/{{ project_name }}/requirements.txt  
+    virtualenv: /srv/{{ project_name }}/env
+
+- name: migrate django 
+  django_manage:
+    command: migrate
+    app_path: /srv/{{ project_name }}
+

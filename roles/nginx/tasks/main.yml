@@ -1,0 +1,27 @@
+---
+
+- name: install nginx 
+  apt:
+    name: nginx
+    state: latest
+
+
+- name: delete default config of nginx 
+  file:
+    path: /etc/nginx/sites-available/default 
+    state: absent
+
+- name: nginx conf 
+  template:
+    src: nginx.j2
+    dest: /etc/nginx/sites-available/{{ project_name }}.conf
+  notify: restart_nginx
+
+- name: Create a symbolic link
+  file:
+      src: /etc/nginx/sites-available/{{ project_name }}.conf
+      dest: /etc/nginx/sites-enabled/{{ project_name }}.conf
+      mode: 0755
+      state: link
+  notify: restart_nginx
+  

@@ -1,0 +1,9 @@
+[uwsgi]
+req-logger = file:/tmp/reqlog
+logger = file:/tmp/errlog
+socket = 127.0.0.1:3031
+chdir = /srv/{{ project_name }}
+wsgi-file = /srv/{{ project_name }}/BSproject/wsgi.py
+processes = {{ uwsgi_procsses }}
+threads = {{ uwsgi_threads }}
+stats = 127.0.0.1:9191

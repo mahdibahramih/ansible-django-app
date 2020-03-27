@@ -1,0 +1,18 @@
+---
+
+- hosts: all 
+  become: yes 
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: nginx install and config 
+      roles:
+        - nginx 
+
+    - name: django app  
+      roles:
+        - app
+
+    - name: install and config uwsgi 
+      roles:
+        - uwsgi

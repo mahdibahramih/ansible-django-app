@@ -1,0 +1,30 @@
+---
+
+- name: create uwsgi config directory 
+  file:
+    path: /etc/uwsgi
+    mode: 0755
+    state: directory
+    
+
+
+- name: copy uwsgi config file to /etc/uwsgi/
+  template:
+    src: uwsgi.conf.j2
+    dest: /etc/uwsgi/{{ project_name }}.ini
+
+
+
+- name: create uwsgi config directory 
+  file:
+    path: /etc/uwsgi/
+    mode: 0755
+    state: directory
+
+
+
+- name: create uwsgi socket
+  template:
+    src: uwsgi.socket.j2 
+    dest: /etc/systemd/system/{{ project_name }}uwsgi.service
+  notify: start uwsgi    
