@@ -3,7 +3,7 @@ Description=uWSGI Emperor
 After=syslog.target
 
 [Service]
-ExecStart=/srv/{{ project_name }}/env/bin/uwsgi --ini /etc/uwsgi/{{ project_name }}.ini
+ExecStart=/opt/{{ project_name }}/env/bin/uwsgi --ini /etc/uwsgi/{{ project_name }}.ini
 # Requires systemd version 211 or newer
 RuntimeDirectory=uwsgi
 Restart=always

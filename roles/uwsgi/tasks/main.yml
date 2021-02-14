@@ -15,15 +15,7 @@
 
 
 
-- name: create uwsgi config directory 
-  file:
-    path: /etc/uwsgi/
-    mode: 0755
-    state: directory
-
-
-
-- name: create uwsgi socket
+- name: create uwsgi service
   template:
     src: uwsgi.socket.j2 
     dest: /etc/systemd/system/{{ project_name }}uwsgi.service

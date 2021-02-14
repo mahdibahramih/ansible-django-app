@@ -1,7 +1,7 @@
 ---
 
-- git_addr: http://gitlab.it.uut.ac.ir/mahdibahramih/bs-final-project.git
-- project_name: bs-final-project 
+- git_addr: gitlab.com
+- project_name: MyAwesome_project 
 - uwsgi_procsses: 4
 - uwsgi_threads: 2
-- domain: 
+- domain: example.caom

@@ -5,11 +5,11 @@
   vars_files:
     - vars.yml
   tasks:
-    - name: nginx install and config 
+    - name: install and config nginx
       roles:
         - nginx 
 
-    - name: django app  
+    - name: clone and preparing django app  
       roles:
         - app
 

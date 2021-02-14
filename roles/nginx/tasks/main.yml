@@ -6,16 +6,15 @@
     state: latest
 
 
-- name: delete default config of nginx 
-  file:
-    path: /etc/nginx/sites-available/default 
-    state: absent
+#- name: delete default config of nginx 
+#  file:
+#    path: /etc/nginx/sites-available/default 
+#    state: absent
 
 - name: nginx conf 
   template:
     src: nginx.j2
     dest: /etc/nginx/sites-available/{{ project_name }}.conf
-  notify: restart_nginx
 
 - name: Create a symbolic link
   file:
