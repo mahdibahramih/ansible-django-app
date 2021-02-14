@@ -4,7 +4,6 @@ for usage you must set some var(like domain,app git repo,...) in vars.yml file
 # Getting start
 ## Install ansible
 
-
 sudo apt update
 
 sudo apt install software-properties-common
